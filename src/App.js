@@ -1,12 +1,13 @@
 import logo from './logo.svg';
-import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
+import { Web3Storage } from 'web3.storage'
 import './App.css';
 
 function App() {
-  const web3Storage = new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN || '' })
+  const web3Storage = new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN })
+  window.web3Storage = web3Storage
 
   async function makeFileObjects() {
-    console.log('====')
+    console.log('uploading started')
     // You can create File objects from a Blob of binary data
     // see: https://developer.mozilla.org/en-US/docs/Web/API/Blob
     // Here we're just storing a JSON object, but you can store images,
